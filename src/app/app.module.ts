@@ -14,6 +14,8 @@ import { RelativesComponent } from './relatives/relatives.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { TestCompletionsComponent } from './test-completions/test-completions.component';
 import { SymptomComponent } from './symptom/symptom.component';
+import { UsersComponent } from './User/users/users.component';
+import { StatsComponent } from './user/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SymptomComponent } from './symptom/symptom.component';
     RelativesComponent,
     TrackingComponent,
     TestCompletionsComponent,
-    SymptomComponent
+    SymptomComponent,
+    UsersComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
