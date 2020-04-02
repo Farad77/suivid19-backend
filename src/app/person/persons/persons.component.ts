@@ -1,27 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, Response } from '@angular/common/http';
-
-
-export interface PersonsResponse {
-  lastName: string,
-  firstName: string,
-  email: string,
-  password: string,
-  address: string,
-  city: string,
-  postalCode: number,
-  phone: string,
-  birthday: number,
-  birthmonth: number,
-  birthyear: number,
-  gender: number,
-  isGeolocated: boolean,
-  isHospitalized: boolean,
-  relatives: [
-    string
-  ];
-}
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-persons',
@@ -34,12 +12,11 @@ export class PersonsComponent implements OnInit {
   utilisateurs:any[];
 
   constructor(private _httpClient: HttpClient) {
-    this.utilisateurs = new Array();
   }
 
   ngOnInit() {
     this._httpClient.get(this._urlPersonnes)
-      .subscribe((res:Response) => {
+      .subscribe((res:any) => {
         this.utilisateurs = res;
       });
   }
