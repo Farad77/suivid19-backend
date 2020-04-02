@@ -18,6 +18,7 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonsComponent } from './person/persons/persons.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TrackingComponent,
     TestCompletionsComponent,
     SymptomComponent,
-    PersonsComponent
+    PersonsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
