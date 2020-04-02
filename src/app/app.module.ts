@@ -13,7 +13,7 @@ import { TestCompletionsComponent } from './test-completions/test-completions.co
 import { SymptomComponent } from './symptom/symptom.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { PersonsComponent } from './person/persons/persons.component';
+import { PatientsComponent } from './patient/patients/patients.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { PersonsComponent } from './person/persons/persons.component';
     TrackingComponent,
     TestCompletionsComponent,
     SymptomComponent,
-    PersonsComponent
+    PatientsComponent
   ],
   imports: [
     BrowserModule,
