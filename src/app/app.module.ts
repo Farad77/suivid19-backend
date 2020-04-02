@@ -7,15 +7,13 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { AdminComponent } from './admin/admin.component';
 import { AgentComponent } from './agent/agent.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { PersonComponent } from './person/person.component';
 import { TestComponent } from './test/test.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { TestCompletionsComponent } from './test-completions/test-completions.component';
 import { SymptomComponent } from './symptom/symptom.component';
-import { UsersComponent } from './User/users/users.component';
-import { StatsComponent } from './user/stats/stats.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { PersonsComponent } from './person/persons/persons.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     AdminComponent,
     AgentComponent,
     DoctorComponent,
-    PersonComponent,
     TestComponent,
     TrackingComponent,
     TestCompletionsComponent,
     SymptomComponent,
-    UsersComponent,
-    StatsComponent
+    PersonsComponent
   ],
   imports: [
     BrowserModule,
