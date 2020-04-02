@@ -12,8 +12,12 @@ import { TrackingComponent } from './tracking/tracking.component';
 import { TestCompletionsComponent } from './test-completions/test-completions.component';
 import { SymptomComponent } from './symptom/symptom.component';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+
 import { HttpClientModule } from '@angular/common/http';
 import { PersonsComponent } from './person/persons/persons.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { PersonsComponent } from './person/persons/persons.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
