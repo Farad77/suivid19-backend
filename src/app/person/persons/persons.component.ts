@@ -18,6 +18,7 @@ export class PersonsComponent implements OnInit {
     this._httpClient.get(this._urlPersonnes)
       .subscribe((res:any) => {
         this.utilisateurs = res;
+        console.log(this.utilisateurs);
       });
   }
 
