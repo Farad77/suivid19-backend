@@ -16,8 +16,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 
 import { HttpClientModule } from '@angular/common/http';
-import { PersonsComponent } from './person/persons/persons.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PatientsComponent } from './patient/patients/patients.component';
+import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
@@ -29,16 +29,16 @@ import { NavbarComponent } from './navbar/navbar.component';
     DoctorComponent,
     TestComponent,
     TrackingComponent,
-    TestCompletionsComponent,
-    SymptomComponent,
-    PersonsComponent,
+      TestCompletionsComponent,
+      SymptomComponent,
+    PatientsComponent,
+    LoginComponent,
     NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatInputModule,
     MatTableModule
   ],
