@@ -12,9 +12,13 @@ import { TrackingComponent } from './tracking/tracking.component';
 import { TestCompletionsComponent } from './test-completions/test-completions.component';
 import { SymptomComponent } from './symptom/symptom.component';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+
 import { HttpClientModule } from '@angular/common/http';
 import { PatientsComponent } from './patient/patients/patients.component';
 import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,15 +29,18 @@ import { LoginComponent } from './login/login.component';
     DoctorComponent,
     TestComponent,
     TrackingComponent,
-    TestCompletionsComponent,
-    SymptomComponent,
+      TestCompletionsComponent,
+      SymptomComponent,
     PatientsComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
