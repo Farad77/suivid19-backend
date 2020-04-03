@@ -13,15 +13,13 @@ export class AuthService {
   }
     
   login(username:string, password:string ) {
-      return this._httpClient.post(this._urlLogin, {username, password});
+      this._httpClient.post(this._urlLogin, {username, password}).subscribe((res:any) => {
+        this.storage.set('id_token', res.access_token);
+        const expiresAt = moment().add(900,'second');
+        this.storage.set('expires_at', expiresAt);
+      });
   }
 
-  private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expiresIn,'second');
-
-    this.storage.set('id_token', authResult.idToken);
-    this.storage.set("expires_at", JSON.stringify(expiresAt.valueOf()) );
-  }
 
   logout() {
     this.storage.remove("id_token");
@@ -38,7 +36,6 @@ export class AuthService {
 
   getExpiration() {
       const expiration = this.storage.get("expires_at");
-      const expiresAt = JSON.parse(expiration);
-      return moment(expiresAt);
+      return moment(expiration);
   }
 }
