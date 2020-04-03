@@ -12,6 +12,7 @@ import { TrackingComponent } from './tracking/tracking.component';
 import { TestCompletionsComponent } from './test-completions/test-completions.component';
 import { SymptomComponent } from './symptom/symptom.component';
 
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PatientsComponent } from './patient/patients/patients.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +21,15 @@ import { ErrorInterceptorService } from './services/error-interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+
+import { HttpClientModule } from '@angular/common/http';
+import { PatientsComponent } from './patient/patients/patients.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -30,15 +40,17 @@ import { AuthGuardService } from './services/auth-guard.service';
     DoctorComponent,
     TestComponent,
     TrackingComponent,
-    TestCompletionsComponent,
-    SymptomComponent,
+      TestCompletionsComponent,
+      SymptomComponent,
     PatientsComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule
   ],
@@ -46,7 +58,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    MatInputModule,
+    MatTableModule
   ],
   bootstrap: [AppComponent]
 })
