@@ -14,6 +14,7 @@ import { SymptomComponent } from './symptom/symptom.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { PatientsComponent } from './patient/patients/patients.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PatientsComponent } from './patient/patients/patients.component';
     TrackingComponent,
     TestCompletionsComponent,
     SymptomComponent,
-    PatientsComponent
+    PatientsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
