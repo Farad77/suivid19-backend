@@ -24,11 +24,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
-
-import { HttpClientModule } from '@angular/common/http';
-import { PatientsComponent } from './patient/patients/patients.component';
-import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -40,8 +37,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     DoctorComponent,
     TestComponent,
     TrackingComponent,
-      TestCompletionsComponent,
-      SymptomComponent,
+    TestCompletionsComponent,
+    SymptomComponent,
     PatientsComponent,
     LoginComponent,
     NavbarComponent
@@ -52,7 +49,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
