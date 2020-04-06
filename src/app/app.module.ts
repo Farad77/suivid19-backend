@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StatsComponent } from './patient/stats/stats.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SymptomComponent,
     PatientsComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
