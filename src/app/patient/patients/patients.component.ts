@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatientsComponent implements OnInit {
 
-  private _urlPersonnes = 'https://suivid19-api.herokuapp.com/patients';
+  private _urlPatients = 'https://suivid19-api.herokuapp.com/patients';
   patients:any[];
 
   constructor(private _httpClient: HttpClient) {
   }
 
   ngOnInit() {
-    this._httpClient.get(this._urlPersonnes)
+    this._httpClient.get(this._urlPatients)
       .subscribe((res:any) => {
         this.patients = res;
       });
