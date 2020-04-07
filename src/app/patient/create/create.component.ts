@@ -14,7 +14,6 @@ export class CreateComponent implements OnInit {
   private _urlDocteurs = 'https://suivid19-api.herokuapp.com/doctors';
   private _urlCreatePatient = 'https://suivid19-api.herokuapp.com/patients';
   docteurs:any[];
-  docteur:any[];
   form:FormGroup;
 
 
