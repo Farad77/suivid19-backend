@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateComponent } from './patient/create/create.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PatientsComponent,
     LoginComponent,
     NavbarComponent,
-    StatsComponent
+    StatsComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

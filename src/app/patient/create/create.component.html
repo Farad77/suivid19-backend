@@ -1,0 +1,76 @@
+<form [formGroup]="form">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-field">
+            <label>Email:</label>
+            <input name="email" formControlName="email">
+        </div>
+        <div class="form-field">
+            <label>Mot de passe:</label>
+            <input name="password" formControlName="password" 
+                   type="password">
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Infos</legend>
+        <div class="form-field">
+            <label>Nom:</label>
+            <input name="lastName" formControlName="lastName">
+        </div>
+        <div class="form-field">
+            <label>Prénom:</label>
+            <input name="firstName" formControlName="firstName">
+        </div>
+        <div class="form-field">
+            <label>Adresse:</label>
+            <input name="address" formControlName="address">
+        </div>
+        <div class="form-field">
+            <label>Ville:</label>
+            <input name="city" formControlName="city">
+        </div>
+        <div class="form-field">
+            <label>Code postal:</label>
+            <input name="postalCode" formControlName="postalCode">
+        </div>
+        <div class="form-field">
+            <label>Téléphone:</label>
+            <input name="phone" formControlName="phone">
+        </div>
+        <div class="form-field">
+            <label>Jour naissance:</label>
+            <input name="birthday" formControlName="birthday">
+        </div>
+        <div class="form-field">
+            <label>Mois naissance:</label>
+            <input name="birthmonth" formControlName="birthmonth">
+        </div>
+        <div class="form-field">
+            <label>Année naissance:</label>
+            <input name="birthyear" formControlName="birthyear">
+        </div>
+        <div class="form-field">
+            <label>Sexe:</label>
+            <input name="gender" formControlName="gender">
+        </div>
+        <div class="form-field">
+            <label>Est géolocalisé:</label>
+            <input name="isGeolocated" formControlName="isGeolocated">
+        </div>
+        <div class="form-field">
+            <label>Est hospitalisé:</label>
+            <input name="isHospitalized" formControlName="isHospitalized">
+        </div>
+        <select name="doctor" id="doctor" formControlName="doctor">
+            <option *ngFor="let unDocteur of docteurs;" value="{{unDocteur.email}}">
+                {{unDocteur.firstName}} - {{unDocteur.lastName}}
+            </option>
+        </select>
+    </fieldset>
+
+    <div class="form-buttons">
+        <button class="button button-primary" 
+                (click)="createSubmit()">Créer</button>
+    </div>
+</form>
