@@ -8,8 +8,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'doctor/patients', component: PatientsComponent, canActivate: [AuthGuardService] },
-  { path: 'doctor/stats', component: StatsComponent, canActivate: [AuthGuardService] }
+  { path: 'doctor/patients', component: PatientsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'doctor'] } },
+  { path: 'doctor/stats', component: StatsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'doctor'] } }
 ];
 
 @NgModule({

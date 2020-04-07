@@ -21,8 +21,6 @@ export class PatientsComponent implements OnInit {
       .subscribe((res:any) => {
         this.patients = res;
       });
-
-      console.log(this.authService.decodeToken(this.storage.get("id_token")));
   }
 
 }
