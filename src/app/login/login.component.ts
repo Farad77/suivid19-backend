@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(val.email, val.password);
       if(this.storage.get("id_token"))
       {
-        this.router.navigateByUrl('/patient/patients');
+        this.router.navigateByUrl('/doctor/patients');
       }
     }
 }

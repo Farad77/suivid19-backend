@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
+import * as jwt_decode from "jwt-decode";
 
 @Injectable()
 export class AuthService {
@@ -38,4 +39,15 @@ export class AuthService {
       const expiration = this.storage.get("expires_at");
       return moment(expiration);
   }
+
+
+  decodeToken(token: string): any {
+    try{
+        return jwt_decode(token);
+    }
+    catch(Error){
+        return null;
+    }
+  }
+
 }
