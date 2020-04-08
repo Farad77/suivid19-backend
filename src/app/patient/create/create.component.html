@@ -7,8 +7,7 @@
         </div>
         <div class="form-field">
             <label>Mot de passe:</label>
-            <input name="password" formControlName="password" 
-                   type="password">
+            <input name="password" formControlName="password" type="password">
         </div>
     </fieldset>
 
@@ -32,7 +31,7 @@
         </div>
         <div class="form-field">
             <label>Code postal:</label>
-            <input name="postalCode" formControlName="postalCode">
+            <input name="postalCode" formControlName="postalCode" type="number">
         </div>
         <div class="form-field">
             <label>Téléphone:</label>
@@ -40,27 +39,30 @@
         </div>
         <div class="form-field">
             <label>Jour naissance:</label>
-            <input name="birthday" formControlName="birthday">
+            <input name="birthday" formControlName="birthday" type="number">
         </div>
         <div class="form-field">
             <label>Mois naissance:</label>
-            <input name="birthmonth" formControlName="birthmonth">
+            <input name="birthmonth" formControlName="birthmonth" type="number">
         </div>
         <div class="form-field">
             <label>Année naissance:</label>
-            <input name="birthyear" formControlName="birthyear">
+            <input name="birthyear" formControlName="birthyear" type="number">
         </div>
         <div class="form-field">
             <label>Sexe:</label>
-            <input name="gender" formControlName="gender">
+            <select name="gender" id="gender" formControlName="gender">
+                <option value="0">Masculin</option>
+                <option value="1">Féminin</option>
+            </select>
         </div>
         <div class="form-field">
             <label>Est géolocalisé:</label>
-            <input name="isGeolocated" formControlName="isGeolocated">
+            <input name="isGeolocated" id="isGeolocated" type="checkbox">
         </div>
         <div class="form-field">
             <label>Est hospitalisé:</label>
-            <input name="isHospitalized" formControlName="isHospitalized">
+            <input name="isHospitalized" id="isHospitalized" type="checkbox">
         </div>
         <select name="doctor" id="doctor" formControlName="doctor">
             <option *ngFor="let unDocteur of docteurs;" value="{{unDocteur.email}}">
@@ -70,7 +72,6 @@
     </fieldset>
 
     <div class="form-buttons">
-        <button class="button button-primary" 
-                (click)="createSubmit()">Créer</button>
+        <button class="button button-primary" (click)="createSubmit();">Créer</button>
     </div>
 </form>

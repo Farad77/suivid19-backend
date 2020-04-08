@@ -18,6 +18,7 @@ export class AuthGuardService {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       if (this.authService.isLoggedIn()) {
         // logged in so return true
+        //console.log(this.authService.decodeToken(this.storage.get("id_token")).exp);
         if(route.data.roles.includes(this.authService.decodeToken(this.storage.get("id_token")).role))
         {
           return true;

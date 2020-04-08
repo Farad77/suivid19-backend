@@ -18,6 +18,9 @@ export class CreateComponent implements OnInit {
 
 
   constructor(private fb:FormBuilder, private _httpClient: HttpClient, private authService:AuthService, @Inject(SESSION_STORAGE) private storage: StorageService) {
+  }
+
+  ngOnInit() {
     this.form = this.fb.group({
       email: ['',Validators.required],
       password: ['',Validators.required],
@@ -30,14 +33,12 @@ export class CreateComponent implements OnInit {
       birthday: ['',Validators.required],
       birthmonth: ['',Validators.required],
       birthyear: ['',Validators.required],
-      gender: ['',Validators.required],
+      gender: ['0',Validators.required],
       isGeolocated: ['',Validators.required],
       isHospitalized: ['',Validators.required],
       doctor: ['',Validators.required]
     });
-  }
 
-  ngOnInit() {
     this._httpClient.get(this._urlDocteurs)
       .subscribe((res:any) => {
         this.docteurs = res;
