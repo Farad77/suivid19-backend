@@ -16,6 +16,9 @@ export class CreateComponent implements OnInit {
   docteurs:any[];
   form:FormGroup;
 
+  estGeolocalise:boolean;
+  estHospitalise:boolean;
+
 
   constructor(private fb:FormBuilder, private _httpClient: HttpClient, private authService:AuthService, @Inject(SESSION_STORAGE) private storage: StorageService) {
   }
@@ -61,10 +64,8 @@ export class CreateComponent implements OnInit {
     const birthmonth = val.birthmonth;
     const birthyear = val.birthyear;
     const gender = val.gender;
-    //const isGeolocated = val.isGeolocated;
-    const isGeolocated = true;
-    //const isHospitalized = val.isHospitalized;
-    const isHospitalized = true;
+    const isGeolocated = val.isGeolocated;
+    const isHospitalized = val.isHospitalized;
     const contacts = null;
     //const doctor = val.doctor;
     const doctor = {id: 1};
