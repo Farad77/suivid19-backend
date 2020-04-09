@@ -16,8 +16,14 @@ export class CreateComponent implements OnInit {
   docteurs:any[];
   form:FormGroup;
 
+  estGeolocalise:boolean;
+  estHospitalise:boolean;
+
 
   constructor(private fb:FormBuilder, private _httpClient: HttpClient, private authService:AuthService, @Inject(SESSION_STORAGE) private storage: StorageService) {
+  }
+
+  ngOnInit() {
     this.form = this.fb.group({
       email: ['',Validators.required],
       password: ['',Validators.required],
@@ -30,14 +36,11 @@ export class CreateComponent implements OnInit {
       birthday: ['',Validators.required],
       birthmonth: ['',Validators.required],
       birthyear: ['',Validators.required],
-      gender: ['',Validators.required],
+      gender: ['0',Validators.required],
       isGeolocated: ['',Validators.required],
       isHospitalized: ['',Validators.required],
       doctor: ['',Validators.required]
     });
-  }
-
-  ngOnInit() {
     this._httpClient.get(this._urlDocteurs)
       .subscribe((res:any) => {
         this.docteurs = res;
@@ -60,10 +63,8 @@ export class CreateComponent implements OnInit {
     const birthmonth = val.birthmonth;
     const birthyear = val.birthyear;
     const gender = val.gender;
-    //const isGeolocated = val.isGeolocated;
-    const isGeolocated = true;
-    //const isHospitalized = val.isHospitalized;
-    const isHospitalized = true;
+    const isGeolocated = val.isGeolocated;
+    const isHospitalized = val.isHospitalized;
     const contacts = null;
     //const doctor = val.doctor;
     const doctor = {id: 1};
