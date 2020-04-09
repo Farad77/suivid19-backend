@@ -17,10 +17,12 @@ export class AuthService {
   login(route:ActivatedRoute, username:string, password:string) {
     this._httpClient.post(this._urlLogin, {username, password}).subscribe((res:any) => {
       this.storage.set('id_token', res.access_token);
-      const exp = this.decodeToken(this.storage.get("id_token")).exp;
+      const decodedToken = this.decodeToken(this.storage.get("id_token"));
+      const exp = decodedToken.exp;
       const date = new Date(exp*1000);
       const expiresAt = moment(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), "hh:mm:ss");
       this.storage.set('expires_at', expiresAt);
+      this.storage.set('user', { id: decodedToken.id, role: decodedToken.role, name: decodedToken.name });
 
       if (!this.route.snapshot.queryParams['returnUrl'])
       {
@@ -39,6 +41,7 @@ export class AuthService {
   logout() {
     this.storage.remove("id_token");
     this.storage.remove("expires_at");
+    this.storage.remove("user");
     this.router.navigateByUrl("/");
   }
 
