@@ -20,6 +20,7 @@ import {MatTableModule} from '@angular/material/table';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateComponent } from './patient/create/create.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CreateComponent } from './patient/create/create.component';
     LoginComponent,
     NavbarComponent,
     StatsComponent,
-    CreateComponent
+    CreateComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
