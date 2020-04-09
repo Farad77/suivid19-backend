@@ -11,6 +11,7 @@ import { User } from './user';
 })
 export class AppComponent implements OnInit {
   title = 'Suivid19 - BackEnd';
+
   subscription: any;
   menus: Array<Menu>;
   user: User;
