@@ -51,7 +51,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let unPatient of patients;">
-                                <td>{{unPatient.id}}</td>
+                                <td><a href="/doctor/stats/patient/{{unPatient.id}}">{{unPatient.id}}</a></td>
                                 <td>{{unPatient.lastName}}</td>
                                 <td>{{unPatient.firstName}} </td>
                                 <td>{{unPatient.email}}</td>
@@ -64,6 +64,5 @@
                 <!-- /.card-body -->
             </div>
         </div>
-        <p>patients works!</p>
     </div>
 </section>
