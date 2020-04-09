@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { AuthService } from '../services/auth.service';
+import { Menu } from './menu';
 
 @Component({
   selector: 'app-navbar',
@@ -8,35 +9,25 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  userRole:string;
+  userFullname:string;
+  menus:Array<Menu>;
 
-  role:string;
-  menus:any[];
-
-  constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) { }
+  constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) {
+    this.userRole = this.storage.get('user')?.role;
+    this.userFullname = this.storage.get('user')?.name;
+  }
 
   ngOnInit(): void {
-    if(this.storage.get("id_token"))
-    {
-      this.role = this.authService.decodeToken(this.storage.get("id_token")).role;
-      if(this.role == "Admin")
-      {
-        this.menus = [["Déconnexion", "/logout"], ["Créer un patient", "/patient/create"], ["Consulter les patients", "/doctor/patients"], ["Stats des patients", "/doctor/stats"]];
-      }
+    this.menus = Array<Menu>();
 
-      else if(this.role == "Doctor")
-      {
-        this.menus = [["Déconnexion", "/logout"], ["Consulter les patients", "/doctor/patients"], ["Stats des patients", "/doctor/stats"]];
-      }
-
-      else if(this.role == "Labo")
-      {
-        this.menus = [["Déconnexion", "/logout"], ["Créer un patient", "/patient/create"]];
-      }
-    }
-
-    else
-    {
-      this.menus = [["Connexion", "/login"]];
+    if (this.authService.isLoggedIn()) {
+      this.menus.push(new Menu('Déconnexion', '/logout', 'sign-in-alt', ['Admin']));
+      this.menus.push(new Menu('Créer un patient', '/patient/create', 'sign-in-alt', ['Admin', 'Labo']));
+      this.menus.push(new Menu('Consulter les patients', '/doctor/patients', 'sign-in-alt', ['Admin', 'Doctor']));
+      this.menus.push(new Menu('Stats des patients', '/doctor/stats', 'sign-in-alt', ['Admin', 'Doctor']));
+    } else {
+      this.menus.push(new Menu('Connexion', '/login', 'sign-in-alt'));
     }
     
   }

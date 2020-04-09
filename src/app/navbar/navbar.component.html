@@ -28,23 +28,23 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div *ngIf="userFullname" class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="assets/dist/img/romain.jpeg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Gautier Romain</a>
+          <a href="#" class="d-block">{{ userFullname }}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item" *ngFor="let unMenu of menus;">
-            <a href="{{unMenu[1]}}" class="nav-link">
-              <i class="fas fa-sign-in-alt"></i>
+          <li class="nav-item" *ngFor="let menu of menus;">
+            <a *ngIf="menu.roles.length == 0 || menu.roles.indexOf(userRole) != -1" href="{{ menu.path }}" class="nav-link">
+              <i class="fas fa-{{ menu.icon }}"></i>
               <p>
-                &nbsp;{{unMenu[0]}}
+                &nbsp;{{ menu.title }}
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
