@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    if(this.storage.get("id_token"))
+    if(this.storage.has("id_token"))
     {
       this.role = this.authService.decodeToken(this.storage.get("id_token")).role;
       if(this.role == "Admin")
