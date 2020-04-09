@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateComponent } from './patient/create/create.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PatientComponent } from './doctor/stats/patient/patient.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { PatientComponent } from './doctor/stats/patient/patient.component';
     StatsComponent,
     CreateComponent,
     LogoutComponent,
-    PatientComponent
+    PatientComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
