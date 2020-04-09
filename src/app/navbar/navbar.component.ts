@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { AuthService } from '../services/auth.service';
+import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Menu } from '../menu';
+import { User } from '../user';
 
 @Component({
   selector: 'app-navbar',
@@ -8,37 +8,13 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @Input()
+  user: User;
+  @Input()
+  menus: Array<Menu>;
 
-  role:string;
-  menus:any[];
+  constructor() {}
 
-  constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) { }
-
-  ngOnInit(): void {
-    if(this.storage.has("id_token"))
-    {
-      this.role = this.authService.decodeToken(this.storage.get("id_token")).role;
-      if(this.role == "Admin")
-      {
-        this.menus = [["Déconnexion", "/logout"], ["Créer un patient", "/patient/create"], ["Consulter les patients", "/doctor/patients"], ["Stats des patients", "/doctor/stats"]];
-      }
-
-      else if(this.role == "Doctor")
-      {
-        this.menus = [["Déconnexion", "/logout"], ["Consulter les patients", "/doctor/patients"], ["Stats des patients", "/doctor/stats"]];
-      }
-
-      else if(this.role == "Labo")
-      {
-        this.menus = [["Déconnexion", "/logout"], ["Créer un patient", "/patient/create"]];
-      }
-    }
-
-    else
-    {
-      this.menus = [["Connexion", "/login"]];
-    }
-    
-  }
+  ngOnInit(): void {}
 
 }

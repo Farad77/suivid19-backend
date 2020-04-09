@@ -1,5 +1,68 @@
-<p>patients works!</p>
-
-<div *ngFor="let unPatient of patients;">
-    {{unPatient.id}} - {{unPatient.lastName}} - {{unPatient.firstName}} - {{unPatient.email}} - {{unPatient.address}} - {{unPatient.city}} - {{unPatient.postalCode}}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Patients</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="">Accueil</a></li>
+                    <li class="breadcrumb-item active">Patients</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 </div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>{{patients.length}}</h3>
+                        <p>Nombres de patients</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card col-12">
+                <div class="card-header">
+                    <h3 class="card-title">Liste des patients</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Adresse</th>
+                                <th>Compléments d'adresse</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let unPatient of patients;">
+                                <td><a href="/doctor/stats/patient/{{unPatient.id}}">{{unPatient.id}}</a></td>
+                                <td>{{unPatient.lastName}}</td>
+                                <td>{{unPatient.firstName}} </td>
+                                <td>{{unPatient.email}}</td>
+                                <td>{{unPatient.address}}</td>
+                                <td>{{unPatient.city}} - {{unPatient.postalCode}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+</section>

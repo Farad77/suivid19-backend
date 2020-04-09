@@ -23,6 +23,9 @@ import { CreateComponent } from './patient/create/create.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ChoixPatientComponent } from './patient/choix-patient/choix-patient.component';
 import { CreateContactComponent } from './patient/create-contact/create-contact.component';
+import { PatientComponent } from './doctor/stats/patient/patient.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { CreateContactComponent } from './patient/create-contact/create-contact.
     CreateComponent,
     LogoutComponent,
     ChoixPatientComponent,
-    CreateContactComponent
+    CreateContactComponent,
+    PatientComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

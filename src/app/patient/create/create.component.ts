@@ -41,7 +41,6 @@ export class CreateComponent implements OnInit {
       isHospitalized: ['',Validators.required],
       doctor: ['',Validators.required]
     });
-
     this._httpClient.get(this._urlDocteurs)
       .subscribe((res:any) => {
         this.docteurs = res;
