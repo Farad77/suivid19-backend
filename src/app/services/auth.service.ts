@@ -39,7 +39,7 @@ export class AuthService {
           this.onConnecion.emit();
         },
         (error) => {
-          this.router.navigateByUrl('/login?error');
+          this.router.navigateByUrl('/login?error=1');
         }
       );
   }
