@@ -7,7 +7,7 @@ html, body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: url(https://healthcarousel.com/wp-content/uploads/2018/05/GettyImages-866772230.jpg) no-repeat center center fixed;
+    background: url(assets/dist/img/background_suivid19.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
