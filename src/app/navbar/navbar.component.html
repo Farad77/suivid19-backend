@@ -11,6 +11,12 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      <li *ngIf="user" class="nav-item d-none d-sm-inline-block">
+        <a href="/logout" class="nav-link">Se déconnecter</a>
+      </li>
+      <li *ngIf="!user" class="nav-item d-none d-sm-inline-block">
+        <a href="/login" class="nav-link">Se connecter</a>
+      </li>
     </ul>
 
   </nav>
@@ -28,27 +34,30 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div *ngIf="user" class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="assets/dist/img/romain.jpeg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Gautier Romain</a>
+          <a href="#" class="d-block">{{ user.name }}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item" *ngFor="let unMenu of menus;">
-            <a href="{{unMenu[1]}}" class="nav-link">
-              <i class="fas fa-sign-in-alt"></i>
-              <p>
-                &nbsp;{{unMenu[0]}}
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
+          <ng-template #recursiveList let-menus>
+            <li class="nav-item" *ngFor="let menu of menus;">
+              <a *ngIf="menu.roles.length == 0 || (user && menu.roles.indexOf(user.role) != -1)" href="{{ menu.path }}" class="nav-link">
+                <i class="fas fa-{{ menu.icon }}"></i>
+                &nbsp;{{ menu.title }}
+              </a>
+              <ul *ngIf="menu.subs.length > 0" class="nav-sidebar nav-subs">
+                <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: menu.subs }"></ng-container>
+              </ul>
+            </li>
+          </ng-template>
+          <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: menus }"></ng-container>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
