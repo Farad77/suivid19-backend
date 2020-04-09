@@ -28,17 +28,13 @@ export class AppComponent implements OnInit {
 
   initSession() {
     this.menus = Array<Menu>();
+    this.user = null;
     
     if (this.authService.isLoggedIn()) {
-      this.menus.push(new Menu('Déconnexion', '/logout', 'sign-in-alt', ['Admin']));
       this.menus.push(new Menu('Créer un patient', '/patient/create', 'sign-in-alt', ['Admin', 'Labo']));
       this.menus.push(new Menu('Consulter les patients', '/doctor/patients', 'sign-in-alt', ['Admin', 'Doctor']));
       this.menus.push(new Menu('Stats des patients', '/doctor/stats', 'sign-in-alt', ['Admin', 'Doctor']));
       this.user = this.storage.get('user');
-    } else {
-      this.user = null;
-      this.menus.push(new Menu('Connexion', '/login', 'sign-in-alt'));
     }
-
   }
 }
