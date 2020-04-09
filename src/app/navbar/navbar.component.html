@@ -40,15 +40,18 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item" *ngFor="let menu of menus;">
-            <a *ngIf="menu.roles.length == 0 || menu.roles.indexOf(userRole) != -1" href="{{ menu.path }}" class="nav-link">
-              <i class="fas fa-{{ menu.icon }}"></i>
-              <p>
+          <ng-template #recursiveList let-menus>
+            <li class="nav-item" *ngFor="let menu of menus;">
+              <a *ngIf="menu.roles.length == 0 || menu.roles.indexOf(userRole) != -1" href="{{ menu.path }}" class="nav-link">
+                <i class="fas fa-{{ menu.icon }}"></i>
                 &nbsp;{{ menu.title }}
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
+              </a>
+              <ul *ngIf="menu.subs.length > 0" class="nav-sidebar nav-subs">
+                <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: menu.subs }"></ng-container>
+              </ul>
+            </li>
+          </ng-template>
+          <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: menus }"></ng-container>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

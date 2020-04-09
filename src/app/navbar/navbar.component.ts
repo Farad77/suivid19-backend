@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) {
     this.userRole = this.storage.get('user')?.role;
+    this.userRole = 'Admin';
     this.userFullname = this.storage.get('user')?.name;
   }
 
