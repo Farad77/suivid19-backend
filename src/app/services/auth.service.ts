@@ -39,6 +39,7 @@ export class AuthService {
   logout() {
     this.storage.remove("id_token");
     this.storage.remove("expires_at");
+    this.router.navigateByUrl("/");
   }
 
   public isLoggedIn() {
