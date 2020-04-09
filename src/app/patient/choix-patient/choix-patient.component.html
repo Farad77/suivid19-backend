@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Lien ajout contact</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let unPatient of patients;">
+            <td>{{unPatient.id}}</td>
+            <td>{{unPatient.lastName}}</td>
+            <td>{{unPatient.firstName}}</td>
+            <td>{{unPatient.email}}</td>
+            <td><a routerLink="/patient/create-contact/{{unPatient.id}}" routerLinkActive="active">Lien</a></td>
+        </tr>
+    </tbody>
+</table>

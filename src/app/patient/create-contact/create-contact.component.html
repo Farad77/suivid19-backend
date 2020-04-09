@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+    <fieldset>
+        <legend>Infos</legend>
+        <div class="form-field">
+            <label>Nom:</label>
+            <input name="lastName" formControlName="lastName">
+        </div>
+        <div class="form-field">
+            <label>Prénom:</label>
+            <input name="firstName" formControlName="firstName">
+        </div>
+        <div class="form-field">
+            <label>Téléphone:</label>
+            <input name="phone" formControlName="phone">
+        </div>
+        <div class="form-field">
+            <label>Mobile:</label>
+            <input name="mobile" formControlName="mobile">
+        </div>
+        <div class="form-field">
+            <label>Commentaire:</label>
+            <textarea name="comment" id="comment" cols="30" rows="10" name="comment" formControlName="comment"></textarea>
+        </div>
+    </fieldset>
+
+    <div class="form-buttons">
+        <button class="button button-primary" (click)="createSubmit();">Créer</button>
+    </div>
+</form>
