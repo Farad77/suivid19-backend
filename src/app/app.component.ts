@@ -48,6 +48,9 @@ export class AppComponent implements OnInit {
         new Menu('Créer', '/labo/create', 'plus-circle', ['Admin']),
         new Menu('Lister', '/labos', 'list-alt', ['Admin'])
       ]));
+      this.menus.push(new Menu('Cellule de veille', '#', 'user-clock', ['Admin'], false, [
+        new Menu('Lister', '/monitors', 'list-alt', ['Admin'])
+      ]));
       this.menus.push(new Menu('Patient', '#', 'user-injured', ['Admin', 'Labo', 'Doctor'], false, [
         new Menu('Créer', '/patient/create', 'plus-circle', ['Admin', 'Labo']),
         new Menu('Lister', '/patients', 'list-alt', ['Admin', 'Labo']),

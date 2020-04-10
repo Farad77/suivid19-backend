@@ -34,6 +34,7 @@ import { NotificationsComponent } from './doctor/notifications/notifications.com
 import { ListLabosComponent } from './labo/list-labos/list-labos.component';
 import { ListIdesComponent } from './ide/list-ides/list-ides.component';
 import { CreateIdeComponent } from './ide/create-ide/create-ide.component';
+import { ListMonitorsComponent } from './monitor/list-monitors/list-monitors.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CreateIdeComponent } from './ide/create-ide/create-ide.component';
     CreateLaboComponent,
     ListLabosComponent,
     ListIdesComponent,
-    CreateIdeComponent
+    CreateIdeComponent,
+    ListMonitorsComponent
   ],
   imports: [
     BrowserModule,
