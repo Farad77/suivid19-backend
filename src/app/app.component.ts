@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Menu } from './menu';
 import { AuthService } from './services/auth.service';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { User } from './user';
+import { UserSession } from './user-session';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   subscription: any;
   menus: Array<Menu>;
-  user: User;
+  user: UserSession;
 
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) {}
   

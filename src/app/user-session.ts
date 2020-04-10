@@ -1,4 +1,4 @@
-export class User {
+export class UserSession {
   id: string;
   name: string;
   role: string;
