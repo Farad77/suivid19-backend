@@ -11,12 +11,14 @@ import { ChoixPatientComponent } from './patient/choix-patient/choix-patient.com
 import { CreateContactComponent } from './patient/create-contact/create-contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor', 'Labo'] } },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'admin/create', component: CreateAdminComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'doctor/patients', component: PatientsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'doctor/stats', component: StatsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'patient/create', component: CreateComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Labo'] } },
