@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
 import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
+import { NotificationsComponent } from './doctor/notifications/notifications.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
     StatsComponent,
     CreatePatientComponent,
     CreateDoctorComponent,
+    NotificationsComponent,
     LogoutComponent,
     ChoixPatientComponent,
     CreateContactComponent,

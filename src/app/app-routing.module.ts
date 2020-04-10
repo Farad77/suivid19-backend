@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
 import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
+import { NotificationsComponent } from './doctor/notifications/notifications.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'admin/create', component: CreateAdminComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'admins', component: ListAdminsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'doctor/create', component: CreateDoctorComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
+  { path: 'doctor/notifications', component: NotificationsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'doctor/patients', component: PatientsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'doctor/stats', component: StatsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'patient/create', component: CreatePatientComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Labo'] } },
