@@ -35,6 +35,7 @@ import { ListLabosComponent } from './labo/list-labos/list-labos.component';
 import { ListIdesComponent } from './ide/list-ides/list-ides.component';
 import { CreateIdeComponent } from './ide/create-ide/create-ide.component';
 import { ListMonitorsComponent } from './monitor/list-monitors/list-monitors.component';
+import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { ListMonitorsComponent } from './monitor/list-monitors/list-monitors.com
     ListLabosComponent,
     ListIdesComponent,
     CreateIdeComponent,
-    ListMonitorsComponent
+    ListMonitorsComponent,
+    CreateMonitorComponent
   ],
   imports: [
     BrowserModule,

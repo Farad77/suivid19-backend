@@ -20,6 +20,7 @@ import { ListLabosComponent } from './labo/list-labos/list-labos.component';
 import { ListIdesComponent } from './ide/list-ides/list-ides.component';
 import { CreateIdeComponent } from './ide/create-ide/create-ide.component';
 import { ListMonitorsComponent } from './monitor/list-monitors/list-monitors.component';
+import { CreateMonitorComponent } from './monitor/create-monitor/create-monitor.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'labos', component: ListLabosComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'ide/create', component: CreateIdeComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'ides', component: ListIdesComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
+  { path: 'monitor/create', component: CreateMonitorComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'monitors', component: ListMonitorsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'doctor/create', component: CreateDoctorComponent, canActivate: [AuthGuardService], data: { roles: ['Admin'] } },
   { path: 'doctor/notifications', component: NotificationsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
