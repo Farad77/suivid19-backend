@@ -4,7 +4,7 @@ import * as moment from "moment";
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import * as jwt_decode from "jwt-decode";
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../user';
+import { UserSession } from '../user-session';
 
 @Injectable()
 export class AuthService {
@@ -25,7 +25,7 @@ export class AuthService {
           const date = new Date(exp*1000);
           const expiresAt = moment(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds(), "hh:mm:ss");
           this.storage.set('expires_at', expiresAt);
-          this.storage.set('user', new User(decodedToken.id, decodedToken.name, decodedToken.role));
+          this.storage.set('user', new UserSession(decodedToken.id, decodedToken.name, decodedToken.role));
 
           if (!this.route.snapshot.queryParams['returnUrl'])
           {
@@ -39,7 +39,7 @@ export class AuthService {
           this.onConnecion.emit();
         },
         (error) => {
-          this.router.navigateByUrl('/login?error');
+          this.router.navigateByUrl('/login?error=1');
         }
       );
   }

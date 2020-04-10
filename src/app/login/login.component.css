@@ -1,0 +1,12 @@
+.form-card {
+  background: none;
+  box-shadow: none;
+}
+
+.login-card-body {
+  background: none;
+}
+
+.input-group-prepend {
+  background: aliceblue;
+}

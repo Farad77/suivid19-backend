@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { Menu } from '../menu';
-import { User } from '../user';
+import { UserSession } from '../user-session';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +9,7 @@ import { User } from '../user';
 })
 export class NavbarComponent implements OnInit {
   @Input()
-  user: User;
+  user: UserSession;
   @Input()
   menus: Array<Menu>;
 

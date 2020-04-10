@@ -10,11 +10,9 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   form:FormGroup;
 
-  constructor(private fb:FormBuilder, private authService:AuthService, private router: Router, @Inject(SESSION_STORAGE) private storage: StorageService, private route: ActivatedRoute) {
-    
+  constructor(private fb:FormBuilder, private authService:AuthService, private router: Router, @Inject(SESSION_STORAGE) private storage: StorageService, public route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -23,7 +21,6 @@ export class LoginComponent implements OnInit {
       password: ['',Validators.required]
     });
   }
-
 
   login() {
     const val = this.form.value;

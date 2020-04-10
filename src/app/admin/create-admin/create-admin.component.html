@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Formulaire de création d'un compte admin</h1>
+  <form (ngSubmit)="onSignIn()">
+    <div *ngIf="route.snapshot.queryParams['error']" class="alert alert-danger" role="alert">
+      <i class="fas fa-exclamation-triangle mr-2"></i> Veuillez remplir correctement le formulaire et valider à nouveau
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="last-name-field">Nom</label>
+        <input type="text" class="form-control" id="last-name-field" [(ngModel)]="admin.lastName" name="lastName" placeholder="Nom" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="first-name-field">Prénom</label>
+        <input type="text" class="form-control" id="first-name-field" [(ngModel)]="admin.firstName" name="firstName" placeholder="Prénom" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="email-field">Email</label>
+        <input type="email" class="form-control" id="email-field" [(ngModel)]="admin.email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="password-field">Mot de passe</label>
+        <input type="password" class="form-control" id="password-field" [(ngModel)]="admin.password" name="password" placeholder="Mot de passe" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="address-field">Adresse</label>
+        <textarea class="form-control" id="address-field" [(ngModel)]="admin.address" name="address" placeholder="Adresse"></textarea>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="city-field">Ville</label>
+        <input type="text" class="form-control" [(ngModel)]="admin.city" id="city-field" name="city" placeholder="Ville">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="postal-code-field">Code postale</label>
+        <input type="number" class="form-control" [(ngModel)]="admin.postalCode" id="postal-code-field" name="postalCode" placeholder="Code postale">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="phone-field">Numéro de téléphone</label>
+        <input type="text" class="form-control" [(ngModel)]="admin.phone" id="phone-field" name="phone" placeholder="Téléphone">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Créer</button>
+  </form>
+</div>

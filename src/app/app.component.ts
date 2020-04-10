@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Menu } from './menu';
 import { AuthService } from './services/auth.service';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { User } from './user';
+import { UserSession } from './user-session';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   subscription: any;
   menus: Array<Menu>;
-  user: User;
+  user: UserSession;
 
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private authService: AuthService) {}
   
@@ -32,9 +32,33 @@ export class AppComponent implements OnInit {
     this.user = null;
     
     if (this.authService.isLoggedIn()) {
-      this.menus.push(new Menu('Créer un patient', '/patient/create', 'sign-in-alt', ['Admin', 'Labo']));
-      this.menus.push(new Menu('Consulter les patients', '/doctor/patients', 'sign-in-alt', ['Admin', 'Doctor']));
-      this.menus.push(new Menu('Stats des patients', '/doctor/stats', 'sign-in-alt', ['Admin', 'Doctor']));
+      this.menus.push(new Menu('Admin', '#', 'user-secret', ['Admin'], false, [
+        new Menu('Créer', '/admin/create', 'plus-circle', ['Admin']),
+        new Menu('Lister', '/admins', 'list-alt', ['Admin'])
+      ]));
+      this.menus.push(new Menu('Docteur', '#', 'user-md', ['Admin'], false, [
+        new Menu('Créer', '/doctor/create', 'plus-circle', ['Admin']),
+        new Menu('Lister', '/doctors', 'list-alt', ['Admin'])
+      ]));
+      this.menus.push(new Menu('Ide', '#', 'user-nurse', ['Admin', 'Doctor'], false, [
+        new Menu('Créer', '/ide/create', 'plus-circle', ['Admin']),
+        new Menu('Lister', '/ides', 'list-alt', ['Admin', 'Doctor'])
+      ]));
+      this.menus.push(new Menu('Labo', '#', 'hospital-user', ['Admin'], false, [
+        new Menu('Créer', '/labo/create', 'plus-circle', ['Admin']),
+        new Menu('Lister', '/labos', 'list-alt', ['Admin'])
+      ]));
+      this.menus.push(new Menu('Cellule de veille', '#', 'user-clock', ['Admin'], false, [
+        new Menu('Créer', '/monitor/create', 'plus-circle', ['Admin']),
+        new Menu('Lister', '/monitors', 'list-alt', ['Admin'])
+      ]));
+      this.menus.push(new Menu('Patient', '#', 'user-injured', ['Admin', 'Labo', 'Doctor'], false, [
+        new Menu('Créer', '/patient/create', 'plus-circle', ['Admin', 'Labo']),
+        new Menu('Lister', '/patients', 'list-alt', ['Admin', 'Labo']),
+        new Menu('Consulter', '/doctor/patients', 'notes-medical', ['Admin', 'Doctor']),
+        new Menu('Statistiques', '/doctor/stats', 'chart-pie', ['Admin', 'Doctor'])
+      ]));
+
       this.user = this.storage.get('user');
     }
   }
