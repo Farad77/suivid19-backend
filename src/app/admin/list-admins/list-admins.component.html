@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let admin of admins;">
-            <th scope="row"><a routerLink="/admin/{{admin.id}}" routerLinkActive="active"><i class="fas fa-eye"></i></a></th>
+            <th scope="row"><a [routerLink]="['/admin', admin.id]"><i class="fas fa-eye"></i></a></th>
             <td>{{admin.lastName}}</td>
             <td>{{admin.firstName}}</td>
             <td>{{admin.email}}</td>

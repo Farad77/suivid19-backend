@@ -45,4 +45,17 @@ export class AdminService {
       );
     });
   }
+
+  getAdmin(id: string) {
+    return new Promise(resolve => {
+      this._httpClient.get(this._urlGetAdmins + '/' + id).subscribe(
+        (res: Admin) => {
+          resolve(res);
+        },
+        (error) => {
+          this.router.navigateByUrl('/admins?error=1');
+        }
+      );
+    });
+  }
 }
