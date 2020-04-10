@@ -28,6 +28,7 @@ import { PatientComponent } from './doctor/stats/patient/patient.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
+import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { CreateAdminComponent } from './admin/create-admin/create-admin.componen
     PatientComponent,
     PageNotFoundComponent,
     HomeComponent,
-    CreateAdminComponent
+    CreateAdminComponent,
+    ListAdminsComponent
   ],
   imports: [
     BrowserModule,
