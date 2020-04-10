@@ -19,7 +19,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateComponent } from './patient/create/create.component';
+import { CreatePatientComponent } from './patient/create/create.component';
+import { CreateDoctorComponent } from './doctor/create/create.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ChoixPatientComponent } from './patient/choix-patient/choix-patient.component';
 import { CreateContactComponent } from './patient/create-contact/create-contact.component';
@@ -35,7 +36,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     NavbarComponent,
     StatsComponent,
-    CreateComponent,
+    CreatePatientComponent,
+    CreateDoctorComponent,
     LogoutComponent,
     ChoixPatientComponent,
     CreateContactComponent,
