@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
 import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
+import { CreateLaboComponent } from './labo/create-labo/create-labo.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
     PageNotFoundComponent,
     HomeComponent,
     CreateAdminComponent,
-    ListAdminsComponent
+    ListAdminsComponent,
+    CreateLaboComponent
   ],
   imports: [
     BrowserModule,
