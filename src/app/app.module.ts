@@ -31,6 +31,7 @@ import { CreateAdminComponent } from './admin/create-admin/create-admin.componen
 import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
 import { CreateLaboComponent } from './labo/create-labo/create-labo.component';
 import { NotificationsComponent } from './doctor/notifications/notifications.component';
+import { ListLabosComponent } from './labo/list-labos/list-labos.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { NotificationsComponent } from './doctor/notifications/notifications.com
     HomeComponent,
     CreateAdminComponent,
     ListAdminsComponent,
-    CreateLaboComponent
+    CreateLaboComponent,
+    ListLabosComponent
   ],
   imports: [
     BrowserModule,
