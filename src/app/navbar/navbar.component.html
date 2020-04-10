@@ -49,7 +49,7 @@
           <ng-template #recursiveList let-menus >
             <ng-container *ngFor="let menu of menus;">
               <li *ngIf="menu.roles.length == 0 || (user && menu.roles.indexOf(user.role) != -1)" class="nav-item" >
-                <a href="{{ menu.path }}" [ngClass]="{'nav-link': true, 'disabled': !menu.isLink}" class="nav-link">
+                <a routerLinkActive="active" routerLink="{{ menu.path }}" [ngClass]="{'nav-link': true, 'disabled': !menu.isLink}">
                   <i class="fas fa-{{ menu.icon }}"></i>
                   &nbsp;{{ menu.title }}
                 </a>
