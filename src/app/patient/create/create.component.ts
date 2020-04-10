@@ -15,6 +15,7 @@ export class CreatePatientComponent implements OnInit {
   private _urlCreatePatient = 'https://suivid19-api.herokuapp.com/patients';
   docteurs:any[];
   form:FormGroup;
+  message:string;
 
   estGeolocalise:boolean;
   estHospitalise:boolean;
@@ -49,6 +50,8 @@ export class CreatePatientComponent implements OnInit {
 
 
   createSubmit(){
+    this.message = "";
+
     const val = this.form.value;
 
     const lastName = val.lastName;
@@ -69,7 +72,7 @@ export class CreatePatientComponent implements OnInit {
     const doctor = {id: val.doctor};
 
     this._httpClient.post(this._urlCreatePatient, {lastName, firstName, email, password, address, city, postalCode, phone, birthday, birthmonth, birthyear, gender, isGeolocated, isHospitalized, contacts, doctor}).subscribe((res:any) => {
-      console.log("ok");
+      this.message = "Le patient a bien été créé";
     });
 
   }
