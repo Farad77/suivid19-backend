@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'doctor/patients', component: PatientsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'doctor/stats', component: StatsComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: 'patient/create', component: CreateComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Labo'] } },
-  { path: 'patient/choix-patient', component: ChoixPatientComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Labo'] } },
+  { path: 'patients', component: ChoixPatientComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Labo'] } },
   { path: 'patient/create-contact/:id', component: CreateContactComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Labo'] } },
   { path: 'doctor/stats/patient/:id ', component: PatientComponent, canActivate: [AuthGuardService], data: { roles: ['Admin', 'Doctor'] } },
   { path: '**', component: PageNotFoundComponent }
