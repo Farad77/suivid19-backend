@@ -30,6 +30,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
 import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
 import { CreateLaboComponent } from './labo/create-labo/create-labo.component';
+import { NotificationsComponent } from './doctor/notifications/notifications.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { CreateLaboComponent } from './labo/create-labo/create-labo.component';
     StatsComponent,
     CreatePatientComponent,
     CreateDoctorComponent,
+    NotificationsComponent,
     LogoutComponent,
     ChoixPatientComponent,
     CreateContactComponent,
