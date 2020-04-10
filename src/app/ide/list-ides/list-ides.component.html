@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Liste des ides</h1>
+  <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Code postale</th>
+            <th scope="col">Téléphone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ide of ides;">
+            <th scope="row"><a routerLink="/ide/{{ide.id}}" routerLinkActive="active"><i class="fas fa-eye"></i></a></th>
+            <td>{{ide.lastName}}</td>
+            <td>{{ide.firstName}}</td>
+            <td>{{ide.email}}</td>
+            <td>{{ide.address}}</td>
+            <td>{{ide.city}}</td>
+            <td>{{ide.postalCode}}</td>
+            <td>{{ide.phone}}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>

@@ -32,6 +32,7 @@ import { ListAdminsComponent } from './admin/list-admins/list-admins.component';
 import { CreateLaboComponent } from './labo/create-labo/create-labo.component';
 import { NotificationsComponent } from './doctor/notifications/notifications.component';
 import { ListLabosComponent } from './labo/list-labos/list-labos.component';
+import { ListIdesComponent } from './ide/list-ides/list-ides.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ListLabosComponent } from './labo/list-labos/list-labos.component';
     CreateAdminComponent,
     ListAdminsComponent,
     CreateLaboComponent,
-    ListLabosComponent
+    ListLabosComponent,
+    ListIdesComponent
   ],
   imports: [
     BrowserModule,
