@@ -1,18 +1,17 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreatePatientComponent implements OnInit {
+export class CreateDoctorComponent implements OnInit {
 
-  private _urlDocteurs = 'https://suivid19-api.herokuapp.com/doctors';
-  private _urlCreatePatient = 'https://suivid19-api.herokuapp.com/patients';
+  private _urlCreateDoctor = 'https://suivid19-api.herokuapp.com/doctors';
   docteurs:any[];
   form:FormGroup;
 
@@ -33,18 +32,8 @@ export class CreatePatientComponent implements OnInit {
       city: ['',Validators.required],
       postalCode: ['',Validators.required],
       phone: ['',Validators.required],
-      birthday: ['',Validators.required],
-      birthmonth: ['',Validators.required],
-      birthyear: ['',Validators.required],
-      gender: ['0',Validators.required],
-      isGeolocated: ['',Validators.required],
-      isHospitalized: ['',Validators.required],
-      doctor: ['',Validators.required]
+      isPersonnal: ['',Validators.required]
     });
-    this._httpClient.get(this._urlDocteurs)
-      .subscribe((res:any) => {
-        this.docteurs = res;
-      });
   }
 
 
@@ -59,16 +48,9 @@ export class CreatePatientComponent implements OnInit {
     const city = val.city;
     const postalCode = val.postalCode;
     const phone = val.phone;
-    const birthday = val.birthday;
-    const birthmonth = val.birthmonth;
-    const birthyear = val.birthyear;
-    const gender = val.gender;
-    const isGeolocated = val.isGeolocated;
-    const isHospitalized = val.isHospitalized;
-    const contacts = null;
-    const doctor = {id: val.doctor};
+    const isPersonnal = val.isPersonnal;
 
-    this._httpClient.post(this._urlCreatePatient, {lastName, firstName, email, password, address, city, postalCode, phone, birthday, birthmonth, birthyear, gender, isGeolocated, isHospitalized, contacts, doctor}).subscribe((res:any) => {
+    this._httpClient.post(this._urlCreateDoctor, {lastName, firstName, email, password, address, city, postalCode, phone, isPersonnal}).subscribe((res:any) => {
       console.log("ok");
     });
 
